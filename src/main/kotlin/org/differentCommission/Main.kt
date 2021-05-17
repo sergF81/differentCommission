@@ -9,17 +9,17 @@ fun main() {
 fun commission(inputNewTransfer: Int, inputOldTransfer: String? = "0", inputCard: String? = "VK"): String? {
 
     return when{
-        inputCard == "VK" && inputNewTransfer >15000 ->"Сумму разового перевода превышает 15000 рублей. Операция отклонена!"
-        inputCard == "VK" && (inputNewTransfer + Integer.parseInt(inputOldTransfer)) > 45000 ->"Общая сумма перевода за месяц превышает 45000 рублей. Операция отклонена!"
-        (inputCard == "Master" || inputCard == "Maestro" || inputCard == "Мир" || inputCard == "Visa" ) && (Integer.parseInt(inputOldTransfer) + inputNewTransfer > 600000) -> {
-                println("Общий размер суммы перевода за месяц превышает 600 000 рублей.").toString()
+        inputCard == "VK" && inputNewTransfer >15000 ->"РЎСѓРјРјСѓ СЂР°Р·РѕРІРѕРіРѕ РїРµСЂРµРІРѕРґР° РїСЂРµРІС‹С€Р°РµС‚ 15000 СЂСѓР±Р»РµР№. РћРїРµСЂР°С†РёСЏ РѕС‚РєР»РѕРЅРµРЅР°!"
+        inputCard == "VK" && (inputNewTransfer + Integer.parseInt(inputOldTransfer)) > 45000 ->"РћР±С‰Р°СЏ СЃСѓРјРјР° РїРµСЂРµРІРѕРґР° Р·Р° РјРµСЃСЏС† РїСЂРµРІС‹С€Р°РµС‚ 45000 СЂСѓР±Р»РµР№. РћРїРµСЂР°С†РёСЏ РѕС‚РєР»РѕРЅРµРЅР°!"
+        (inputCard == "Master" || inputCard == "Maestro" || inputCard == "РњРёСЂ" || inputCard == "Visa" ) && (Integer.parseInt(inputOldTransfer) + inputNewTransfer > 600000) -> {
+                println("РћР±С‰РёР№ СЂР°Р·РјРµСЂ СЃСѓРјРјС‹ РїРµСЂРµРІРѕРґР° Р·Р° РјРµСЃСЏС† РїСЂРµРІС‹С€Р°РµС‚ 600 000 СЂСѓР±Р»РµР№.").toString()
 
         }
         (inputCard == "Master" || inputCard == "Maestro") && (75000 < Integer.parseInt(inputOldTransfer) + inputNewTransfer &&  Integer.parseInt(inputOldTransfer) + inputNewTransfer < 600000) -> String.format("%.0f",(inputNewTransfer/100*0.6 + 20)*100)
-        (inputCard == "Visa" || inputCard == "Мир") && inputNewTransfer/100*0.75 < 35 ->"Комиссия составляет " + 35*100 + " копеек"
-        (inputCard == "Visa" || inputCard == "Мир") && inputNewTransfer/100*0.75 > 35 -> "Комиссия составляет " + String.format("%.0f",inputNewTransfer/100*0.75*100) + " копеек"
+        (inputCard == "Visa" || inputCard == "РњРёСЂ") && inputNewTransfer/100*0.75 < 35 ->"РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ " + 35*100 + " РєРѕРїРµРµРє"
+        (inputCard == "Visa" || inputCard == "РњРёСЂ") && inputNewTransfer/100*0.75 > 35 -> "РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ " + String.format("%.0f",inputNewTransfer/100*0.75*100) + " РєРѕРїРµРµРє"
 
-        else -> "Комиссия составляет 0 копеек. "
+        else -> "РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ 0 РєРѕРїРµРµРє. "
     }
 }
 
